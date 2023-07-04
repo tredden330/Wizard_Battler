@@ -521,7 +521,7 @@ MonoBehaviour:
   m_DisconnectTimeoutMS: 30000
   ConnectionData:
     Address: 24.91.29.105
-    Port: 12345
+    Port: 54321
     ServerListenAddress: 0.0.0.0
   DebugSimulator:
     PacketDelayMS: 0
