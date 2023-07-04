@@ -520,7 +520,7 @@ MonoBehaviour:
   m_MaxConnectAttempts: 60
   m_DisconnectTimeoutMS: 30000
   ConnectionData:
-    Address: 24.91.29.105
+    Address: 192.168.56.1
     Port: 54321
     ServerListenAddress: 0.0.0.0
   DebugSimulator:
