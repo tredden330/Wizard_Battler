@@ -13,9 +13,10 @@ public class AttachCamera : NetworkBehaviour
 
         if (IsOwner)
         {
-            Debug.Log("this");
+            Debug.Log("camera attached!");
             cam = GameObject.Find("Main Camera");
-            cam.transform.position = this.transform.position + new Vector3(0f, camHeight, 0f);
+            cam.transform.position = this.transform.position + new Vector3(0.28f, camHeight, 0f);
+            cam.transform.eulerAngles = new Vector3(0f, 0f, 0f);
             cam.transform.SetParent(this.transform);
         }
     }
