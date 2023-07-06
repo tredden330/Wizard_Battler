@@ -10,6 +10,13 @@ public class PlayerMovement : NetworkBehaviour
     public Vector3 camForward;
     public Vector3 camUp;
     public Vector3 camRight;
+    
+    public GameObject playerCam;
+    
+    public float thrust = 600f;
+
+    Rigidbody m_Rigidbody;
+   
 
     void Start()
     {
@@ -18,17 +25,22 @@ public class PlayerMovement : NetworkBehaviour
 
         //start player at origin
         this.transform.position = Vector3.zero;
+        
+        m_Rigidbody = GetComponent<Rigidbody>();
+        
+        
+        
     }
 
     private void Update()
     {
-        //leave if you dont own this character
+        //leave if you dont own this character, leave
         if (!IsOwner) return;
-
+        
         //rotate based on mouse input
         turn.x += Input.GetAxis("Mouse X");
         turn.y += Input.GetAxis("Mouse Y");
-        this.transform.localRotation = Quaternion.Euler(-turn.y, turn.x, 0);
+        transform.localRotation = Quaternion.Euler(-turn.y, turn.x, 0);
 
         //movement relative to camera rotation
         camForward = Camera.main.transform.forward;
@@ -48,6 +60,10 @@ public class PlayerMovement : NetworkBehaviour
         if (Input.GetKey(KeyCode.S))
         {
             this.transform.position -= camForward * speed;
+        }
+        if (Input.GetKeyDown("space"))
+        {
+            m_Rigidbody.AddForce(transform.up * thrust);
         }
     }
 }
